@@ -18,18 +18,6 @@ class Graph
 {
 public:
 	vector<Node*> books;
-	int numNodes=0; //number of nodes in the graph
-	int x;
-	int y;
-	
-    //adjacency matrix
-    vector<vector<int>> adjMatrix;
- 
-    //Constructor
-    Graph(vector<Edge> const &edges, int n)
-    {
-        
-    }
 };
 
 //Traverses through the CSV file and creates a node for each line
