@@ -19,8 +19,11 @@ class Graph
 public:
 	Node* books[100000];
 	int adjMatrix[100000][100000];	
+	void constructMatrix();
 };
 
+Graph::constructMatrix() {
+};
 
 //Traverses through the CSV file and creates a node for each line
 void readFile(){ 		
