@@ -25,12 +25,12 @@ public:
     //Graph Implementation Functions & Variables
     Node* books[100000];
     vector<int[100000]> adjMatrix;
+    vector<int> adjList [100000];
 	    // or vector<vector<int>>adjMatrix; ??? the 2D array was stated as "too large" for CLion
 
     //Graph Data initialization
     void constructMatrix();
     void readFile();
-
 
     //Graph Traversal Functions & Variables
 	bool* visited;
@@ -52,7 +52,24 @@ public:
 };
 
 void Graph::constructMatrix() {
-//for each book 0->9999999
+    string currentgenre;
+    string allgenres;
+    for (int i = 0; i < 100000; i++){
+        while (allgenres.size() > 0){  
+            allgenres = books[i]->genre;
+            currentgenre = books[i]->genre.substr(0, books[i]->genre.find(','));
+            allgenres.erase(0, allgenres.find(',') + 1);
+            for (int j = 0; j < 100000; j++){
+                if (books[j]->genre.find(currentgenre) != std::string::npos) {
+                    //IF BOOK HAS THE SAME GENRE
+                    adjList[i].push_back(j);
+                    adjList[j].push_back(i);
+                }
+            }
+        }
+        
+    }
+/*//for each book 0->9999999
     for (int i = 0; i < 100000; i++) {
         basic_string<char> genresB1 = books[i]->genre;
         adjMatrix[i][i] = 1; //book is a adj to itself
@@ -80,7 +97,7 @@ void Graph::constructMatrix() {
                     }
 
                 }
-    }
+    }*/
 
 };
 void Graph::DFS(int v) { //DFS from a random src node
@@ -195,7 +212,6 @@ targGenre2 = genre2;
 //Traverses through the CSV file and creates a node for each line
 
 void Graph::readFile(){
-
     ifstream file("GoodReads_100k_books.csv");
     string input;
     string token;
@@ -208,6 +224,7 @@ void Graph::readFile(){
         Node* temp = new Node();
 
         getline(myData, token, '~');
+        cout << token << endl;
         temp->author = token;
         
         getline(myData, token, '~');
