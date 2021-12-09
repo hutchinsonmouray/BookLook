@@ -212,6 +212,9 @@ void Graph::readFile(){
 
         getline(myData, token, ',');
         temp->bookFormat = token;
+	    
+	getline(myData, token, ',');
+        temp->desc = token;
 
         getline(myData, token, ',');
         temp->genre = token;
