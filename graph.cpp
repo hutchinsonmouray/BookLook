@@ -196,7 +196,7 @@ targGenre2 = genre2;
 
 void Graph::readFile(){
 
-    ifstream file("GoodReads_100k_books.csv");
+    ifstream file("GoodReads_Tilde.csv");
     string input;
     string temp_token;
     string token;
