@@ -24,5 +24,7 @@ void  ratingSort(vector<Node> &books) {
 
 
 int main() {
+    Graph LibraryofBooks;
+    LibraryofBooks.readFile();
     return 0;
 }

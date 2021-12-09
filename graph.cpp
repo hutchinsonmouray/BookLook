@@ -198,6 +198,8 @@ void Graph::readFile(){
 
     ifstream file("GoodReads_100k_books.csv");
     string input;
+    string temp_token;
+    string token;
     getline(file, input);
     int i=0;
 
@@ -205,48 +207,104 @@ void Graph::readFile(){
 
         stringstream myData(input);
         Node* temp = new Node();
-        string token;
 
-        getline(myData, token, ',');
-        temp->author = token;
 
-        getline(myData, token, ',');
-        temp->bookFormat = token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->author = temp_token;
+        getline(myData, temp_token, '~');
+        cout << temp_token << endl;
+        
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->bookFormat = temp_token;
+        temp_token = "";
 	    
-	getline(myData, token, ',');
-        temp->desc = token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->desc = temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->genre = token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->genre  = temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->img = stoi(token);
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        //temp->img = stoi(temp_token);
+        temp_token = "";
+        
 
-        getline(myData, token, ',');
-        temp->isbn= token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->isbn = temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->isbn13 = token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->isbn13 = temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->link= token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->link = temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->pageCount = stoi(token);
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        //temp->pageCount = stoi(token);
+        temp_token = "";
+        
 
-        getline(myData, token, ',');
-        temp->rating = stod(token);
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        //temp->rating = stod(token);
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->review= token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->review= temp_token;
+        temp_token = "";
+        
 
-        getline(myData, token, ',');
-        temp->title = token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->title= temp_token;
+        temp_token = "";
 
-        getline(myData, token, ',');
-        temp->totalRatings= token;
+        while (temp_token.find("~") != std::string::npos) {
+            getline(myData, token, '~');
+            temp_token = temp_token + token;
+        }
+        temp->totalRatings= temp_token;
+        token = "";
 
-
+        cout << i << endl;
         books[i]=temp;  //Once the values in the node are attributed the node is added to a vector
         i++;
     }
