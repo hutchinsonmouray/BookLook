@@ -10,7 +10,7 @@
 using namespace std;
 
 struct Node {
-    string author, genre, bookFormat, isbn, isbn13, desc, img, link;
+    string author, genre, bookFormat, isbn, isbn13, desc, img, link, title, review, totalRatings;
     int pageCount;
     double rating;
 };
