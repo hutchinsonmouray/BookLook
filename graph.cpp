@@ -193,35 +193,57 @@ targGenre2 = genre2;
 
 
 //Traverses through the CSV file and creates a node for each line
+
 void Graph::readFile(){
+
     ifstream file("GoodReads_100k_books.csv");
     string input;
     getline(file, input);
     int i=0;
+
     while(getline(file, input)){
+
         stringstream myData(input);
         Node* temp = new Node();
         string token;
+
         getline(myData, token, ',');
         temp->author = token;
+
         getline(myData, token, ',');
         temp->bookFormat = token;
-        getline(myData, token, ',');
-        temp->desc= token;
+
         getline(myData, token, ',');
         temp->genre = token;
+
         getline(myData, token, ',');
         temp->img = stoi(token);
+
         getline(myData, token, ',');
         temp->isbn= token;
+
         getline(myData, token, ',');
         temp->isbn13 = token;
+
         getline(myData, token, ',');
         temp->link= token;
+
         getline(myData, token, ',');
         temp->pageCount = stoi(token);
+
         getline(myData, token, ',');
         temp->rating = stod(token);
+
+        getline(myData, token, ',');
+        temp->review= token;
+
+        getline(myData, token, ',');
+        temp->title = token;
+
+        getline(myData, token, ',');
+        temp->totalRatings= token;
+
+
         books[i]=temp;  //Once the values in the node are attributed the node is added to a vector
         i++;
     }
