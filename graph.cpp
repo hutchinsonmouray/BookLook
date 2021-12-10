@@ -29,9 +29,9 @@ class Graph
 public:
 
     //Graph Implementation Functions & Variables
-    Node* books[50000];
+    Node* books[100000];
  // vector<bool[100000]> adjMatrix;
-    list<int>* adjList= new list<int> [50000];
+    list<int>* adjList= new list<int> [100000];
     //vector<vector<bool>> adjList;
     map<int, bool> dfsvisited;
 
@@ -65,12 +65,12 @@ public:
 };
 
 void Graph::constructMatrix() {
-    int matSize = 50000;
+    int matSize = 100000;
     //for each book 0->9999999//
     string currentgenre;
     string allgenres;
     //adjList.size()
-    for (int i = 0; i < 50000; i++) {
+    for (int i = 0; i < 100000; i++) {
         cout << i << endl;
         allgenres = books[i]->genre;
         while (!allgenres.empty()) {
@@ -133,8 +133,8 @@ void Graph::DFS(int v) {
     // Return this as a vector.
 
 void Graph::BFS(int v) { //BFS from a random src node
-    visited = new bool [50000];
-    for (int i = 0; i < 50000; i++) {
+    visited = new bool [100000];
+    for (int i = 0; i < 100000; i++) {
         visited[i] = false;
     }
     visited[v] = true;
@@ -192,7 +192,7 @@ void Graph::Search(string genre1, string genre2){
 
     while (recBook1BFS==-1 && recBook1DFS==-1) {
         //if we start with a node not connected to any others -> pick a new node?
-        int b = rand() % 4999 + 1;
+        int b = rand() % 99999 + 1;
         find = 1;
 
 
@@ -228,7 +228,7 @@ void Graph::Search(string genre1, string genre2){
     //(5)
     //complete the book lists using recBook1DFS & recBook1BFS
     if (recBook1BFS!=-1 && recBook1DFS!=-1) {
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 100000; i++) {
             auto it  = std::find(adjList[recBook1BFS].begin(), adjList[recBook1BFS].end(), i);
 
             if (it != adjList[recBook1BFS].end()){
@@ -252,7 +252,7 @@ void Graph::readFile(){
     getline(file, input);
     int i=0;
 
-    while(getline(file, input) && i < 50000){
+    while(getline(file, input) && i < 100000){
         bool skip = false;
         stringstream myData(input);
         Node* temp = new Node();
