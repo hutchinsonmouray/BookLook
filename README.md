@@ -51,20 +51,3 @@ Graph Construction - Mouray Hutchinson/Morgan Cobb
 
 References 
 Discussion 10 pptx - Graph definitions, implementations, and searching
-
-
-
-
-
-
-
-
-Structure:
-Main.cpp //taking in user input
-graph.cpp / implementation of graph
-  - node class
-
-
-
-
-
